@@ -2,7 +2,7 @@ import wolframalpha,time
 client=wolframalpha.Client('INSERT YOUR WOLFRAM API-KEY HERE')
 n = input('How Many Question Do You Want Answer Of: ')
 n=int(n)
-while(n>0):
+if(n>0):
     question = str(input('What Is Your Question? ')) 
     res = client.query(question)
     if res['@success']=='false':
@@ -11,3 +11,6 @@ while(n>0):
         result = next(res.results, None)
         print(result.text if result else 'No results')
     n-=1
+
+else:
+    print('Please enter a valid number')
